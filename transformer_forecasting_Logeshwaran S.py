@@ -1,7 +1,7 @@
-# transformer_forecasting_monika.py
+# transformer_forecasting_logeshwaran_s.py
 """
 Advanced Time Series Forecasting with Deep Learning and Attention Mechanisms
-Student: Monika
+Student: Logeshwaran S
 
 Single-file pipeline:
 - Generates multivariate synthetic time series with hierarchy-like structure
@@ -251,7 +251,7 @@ def train_and_evaluate(df:pd.DataFrame, seq_len=SEQ_LEN, horizon=HORIZON, epochs
         "history": history
     }
     # save model
-    torch.save(model.state_dict(), os.path.join(OUTPUT_DIR, "transformer_model_monika.pth"))
+    torch.save(model.state_dict(), os.path.join(OUTPUT_DIR, "transformer_model_logeshwaran s.pth"))
     # plot example series
     try:
         if preds_list:
@@ -308,7 +308,7 @@ def generate_pdf_report(results:Dict[str,Any], outpath):
     doc = SimpleDocTemplate(outpath, pagesize=A4)
     styles = getSampleStyleSheet()
     story=[]
-    story.append(Paragraph("Advanced Time Series Forecasting with Attention - Monika", styles['Title'])); story.append(Spacer(1,12))
+    story.append(Paragraph("Advanced Time Series Forecasting with Attention - Logeshwaran S", styles['Title'])); story.append(Spacer(1,12))
     story.append(Paragraph("Results Summary", styles['Heading2'])); story.append(Spacer(1,8))
     rows=[["Metric","Value"], ["Bottom SMAPE", str(results.get("bottom_smape"))], ["Bottom MASE", str(results.get("bottom_mase"))], ["RMSE", str(results.get("rmse"))]]
     tbl = Table(rows, colWidths=[200,200]); tbl.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.lightgrey),('GRID',(0,0),(-1,-1),0.5,colors.grey)]))
@@ -339,8 +339,9 @@ def main():
     # save results json
     with open(os.path.join(OUTPUT_DIR, "results_transformer.json"), "w") as f:
         json.dump(results, f, indent=2, default=lambda o: None)
-    generate_pdf_report(results, os.path.join(OUTPUT_DIR, "Report_Monika.pdf"))
+    generate_pdf_report(results, os.path.join(OUTPUT_DIR, "logeshwaran report.pdf"))
     print("All outputs in", OUTPUT_DIR, "runtime %.1f s" % (time.time()-t0))
 
 if __name__ == "__main__":
     main()
+
